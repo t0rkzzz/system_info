@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <table>
+            <tr>
+                <td style="text-align: center; border: solid black 2px">Доменное имя</td>
+                <td style="text-align: center; border: solid black 2px">RAM</td>
+                <td style="text-align: center; border: solid black 2px">Критическое значение</td>
+                <td style="text-align: center; border: solid black 2px">CPU</td>
+                <td style="text-align: center; border: solid black 2px">Критическое значение</td>
+                <td style="text-align: center; border: solid black 2px">Сохранить</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; border: solid black 1px">{{ info.name }}</td>
+                <td style="text-align: center; border: solid black 1px"><a href="/self_tasks">{{ info.RAM.percent }}</a></td>
+                <td style="text-align: center; border: solid black 2px">
+                    {% if form.ram_critical.errors %}
+                        {{ form.ram_critical(style="background: Salmon") }}
+                    {% else %}
+                        {{ form.ram_critical }}
+                    {% endif %}
+                </td>
+                <td style="text-align: center; border: solid black 1px"><a href="/self_tasks">{{ info.CPU }}</a></td>
+                <td style="text-align: center; border: solid black 2px">
+                    {% if form.cpu_critical.errors %}
+                        {{ form.cpu_critical(style="background: Salmon") }}
+                    {% else %}
+                        {{ form.cpu_critical() }}
+                    {% endif %}
+                </td>
+                <td style="text-align: center; border: solid black 2px">{{ form.submit() }}</td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock content %}

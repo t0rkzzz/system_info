@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>Системная информация - {{title}}</title>
+        {% else %}
+        <title>Системная информация</title>
+        {% endif %}
+    </head>
+    <body>
+    <h3>
+        {% if ip_ad %}
+            {{ ip_ad }}
+        {% endif %}
+        {% if pc_name %}
+            - {{ pc_name }}
+        {% endif %}
+    </h3>
+        {% block content %}{% endblock %}
+    <a href="http://192.168.0.15:5678/home">В начало</a>
+    </body>
+</html>
