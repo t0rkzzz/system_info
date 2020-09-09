@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+    <table>
+        <tr>
+            <td style="text-align: center; border: solid black 2px" colspan="4"><b>Процессы</b></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; border: solid black 2px">
+                pID
+            </td>
+            <td style="text-align: center; border: solid black 2px">
+                Имя образа
+            </td>
+            <td style="text-align: center; border: solid black 2px">
+                CPU
+            </td>
+            <td style="text-align: center; border: solid black 2px">
+                RAM
+            </td>
+        </tr>
+        {% for task in info %}
+            <tr>
+                <td style="text-align: center; border: solid black 1px">
+                    {{ task.pid }}
+                </td>
+                <td style="text-align: center; border: solid black 1px">
+                    {{ task.name }}
+                </td>
+
+                <td style="text-align: center; border: solid black 1px">
+                    {{ task.cpu }}
+                </td>
+
+                <td style="text-align: center; border: solid black 1px">
+                    {{ task.RAM }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
